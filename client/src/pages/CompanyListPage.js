@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addCompany } from '../actions';
+import { Link } from '@reach/router';
 
 const CourseListPage = ({ companies, dispatch }) => {
   const [companyName, setCompanyName] = useState('');
@@ -43,7 +44,11 @@ const CourseListPage = ({ companies, dispatch }) => {
     <div>
       <ul>
         {companies.map(company => (
-          <li key={company.id}>{company.companyname}</li>
+          <li key={company.id}>
+           <Link to={`/companies/${company.id}`}>
+             {company.companyname}
+          </Link>
+          </li>
         ))}
       </ul>
     </div>
