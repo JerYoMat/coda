@@ -1,3 +1,11 @@
+
+export const getCompanies = () => {
+  return fetch('/companies').then(res => res.json());
+};
+
+
+
+
 export const createCompany = (name, ticker, exchange) => {
   
   return postData('/companies', {

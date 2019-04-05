@@ -5,6 +5,7 @@ import {
   applyMiddleware,
   compose
 } from 'redux';
+import { loadCompanies } from './actions';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
 import App from './App';
@@ -21,6 +22,8 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(applyMiddleware(thunk));
 const store = createStore(reducer, enhancer);
+store.dispatch(loadCompanies())
+
 
 ReactDOM.render(
   <Provider store={store}>

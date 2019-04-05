@@ -3,7 +3,9 @@ import CompanyListPage from './pages/CompanyListPage';
 
 const App = () => {
   return (
-    <div><CompanyListPage /></div>
+    <div>
+      <button>Login/Signup</button>
+      <CompanyListPage /></div>
   )
 }
 
