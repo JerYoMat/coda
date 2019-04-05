@@ -63,6 +63,7 @@ const reducer = produce((draft, action) => {
     case LOGIN_SUCCESS:
       draft.user = action.payload;
       draft.loggingIn = false;
+      draft.loginModalOpen = false;
       return;
     case SIGNUP_ERROR:
     case LOGIN_ERROR:

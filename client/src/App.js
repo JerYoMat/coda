@@ -1,33 +1,17 @@
 import React from 'react';
+import { Router, Redirect } from '@reach/router'; 
 import CompanyListPage from './pages/CompanyListPage';
-import Modal from 'react-modal'
-import SignupLogin from './components/SignupLogin';
-import { openLoginModal, closeLoginModal } from './actions';
-import { connect } from 'react-redux';
+import SignupLoginPage from './pages/SignupLoginPage';
 
-const App = ({ modalOpen, dispatch }) => {
-  
-  const handleModalOpen = () => {
-    dispatch(openLoginModal())
-  }
-  const handleModalClose = () => {
-    dispatch(closeLoginModal())
-  }
+
+const App = () => {
   return (
-    <div>
-      <button onClick={handleModalOpen}>Login/Signup</button>
-      <Modal isOpen={modalOpen} onRequestClose={handleModalClose}>
-        <SignupLogin />
-      </Modal>
-      <CompanyListPage /></div>
+    <Router>
+      <Redirect noThrow from='/' to='/companies' />
+      <CompanyListPage path='companies'/>
+      <SignupLoginPage path='/login' />
+    </Router>
   )
 }
 
-const mapState = state => ({
-  modalOpen: state.loginModalOpen 
-})
-
-
-
-
-export default connect(mapState)(App);
+export default App;

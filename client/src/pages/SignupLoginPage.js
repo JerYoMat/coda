@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { loginUser, signupUser } from '../actions';
 
 
-const SignUpLogin = ({loginUser, signupUser}) => {
+const SignUpLoginPage = ({loginUser, signupUser}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -60,13 +60,12 @@ const SignUpLogin = ({loginUser, signupUser}) => {
     </div>
   )
 }
-const mapState = (state) => ({
-  loggingIn: state.loggingIn,
-  loginError: state.loginError,
-})
+
 const mapDispatch = {
   loginUser, signupUser
 }
+const mapState = state => (state)
 
-export default connect(mapState, mapDispatch)(SignUpLogin);
+
+export default connect(mapState, mapDispatch)(SignUpLoginPage);
 
