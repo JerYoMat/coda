@@ -44,3 +44,9 @@ function postData(url = ``, data = {}) {
     body: JSON.stringify(data) // body data type must match "Content-Type" header
   }).then(response => response.json());
 }
+
+
+let authToken = null;
+export const setToken = token => {
+  authToken = token;
+};

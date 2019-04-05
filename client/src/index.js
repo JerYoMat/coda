@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import App from './App';
 import thunk from 'redux-thunk';
+import { saveAuthToken } from './middleware';
 import './index.css';
 
 const composeEnhancers =
@@ -21,11 +22,11 @@ const composeEnhancers =
       })
     : compose;
 
-const enhancer = composeEnhancers(applyMiddleware(thunk));
+const enhancer = composeEnhancers(applyMiddleware(thunk, saveAuthToken));
 const store = createStore(reducer, enhancer);
-Modal.setAppElement('#root')
-store.dispatch(loadCompanies())
 
+store.dispatch(loadCompanies())
+Modal.setAppElement('#root')
 
 ReactDOM.render(
   <Provider store={store}>

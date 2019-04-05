@@ -5,6 +5,8 @@ ruby '2.6.2'
 gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
+gem 'devise'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rest-client'
