@@ -5,6 +5,7 @@ import {
   applyMiddleware,
   compose
 } from 'redux';
+import Modal from 'react-modal';
 import { loadCompanies } from './actions';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
@@ -22,6 +23,7 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(applyMiddleware(thunk));
 const store = createStore(reducer, enhancer);
+Modal.setAppElement('#root')
 store.dispatch(loadCompanies())
 
 

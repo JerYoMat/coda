@@ -9,7 +9,6 @@ const CourseListPage = ({ companies, dispatch }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("e handler",companyName, companyTicker, companyExchange)
     dispatch(addCompany(companyName, companyTicker, companyExchange));
   };
 
