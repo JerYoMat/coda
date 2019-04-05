@@ -12,6 +12,15 @@ include ERB::Util
     render json: @companies
   end 
 
+  def create 
+   @company = Company.new 
+   @company.companyname = params['companyname']
+   @company.primarysymbol = params['primarysymbol']
+   @company.primaryexchange = params['primarysymbol']
+   @company.save 
+   render json: @company 
+  end 
+
   def return_fins
     ticker = url_encode(params['ticker'].upcase)
     @company = Company.find_by(primarysymbol: ticker)
