@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :companies, only: [:index, :create, :show]
   post '/users', to: 'users#create'
-  get '/companies/:ticker/financial_periods', to: 'companies#return_fins'
+  get '/companies/:ticker/financials', to: 'companies#return_fins'
 end
 

@@ -7,7 +7,7 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem 'rest-client'
 gem 'foreman', '~> 0.82.0'
 gem 'dotenv-rails'
 gem 'active_model_serializers'

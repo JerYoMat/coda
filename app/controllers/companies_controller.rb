@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
 include ERB::Util
 
   def index
-    @companies = Company.limit(20)
+    @companies = Company.all
     render json: @companies
   end 
 
@@ -43,7 +43,7 @@ include ERB::Util
         new_financial_period.save
       end 
     end  
-    render json: @company.financial_periods
+    render json:  @company.financial_periods
 
   end 
 

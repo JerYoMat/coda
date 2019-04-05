@@ -1,4 +1,4 @@
-import { createCompany, getCompanies, login, signup } from './api';
+import { createCompany, getCompanies, login, signup, getFins } from './api';
 
 export const ADD_COMPANY_BEGIN = 'ADD_COMPANY_BEGIN';
 export const ADD_COMPANY_SUCCESS = 'ADD_COMPANY_SUCCESS';
@@ -18,6 +18,10 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 // ----------------------------------
 export const OPEN_LOGIN_MODAL = 'OPEN_LOGIN_MODAL';
 export const CLOSE_LOGIN_MODAL = 'CLOSE_LOGIN_MODAL'
+// --------------------------------------------
+export const LOAD_FINS_BEGIN = 'LOAD_FINS_BEGIN';
+export const LOAD_FINS_SUCCESS = 'LOAD_FINS_SUCCESS';
+export const LOAD_FINS_ERROR = 'LOAD_FINS_ERROR';
 
 //! ------
 //! ------
@@ -41,10 +45,10 @@ export const loadCompanies = () => {
   return dispatch => {
     dispatch({ type: LOAD_COMPANIES_BEGIN });
     getCompanies()
-    .then(courses => {
+    .then(companies => {
       dispatch({
         type: LOAD_COMPANIES_SUCCESS,
-        payload: courses
+        payload: companies
       });
     })
     .catch(error => {
@@ -86,6 +90,23 @@ export const signupUser = (email, password) => {
     })
   }
 }
+
+export const loadFins = (ticker) => {
+  return dispatch => {
+    dispatch({ type: LOAD_FINS_BEGIN });
+    getFins(ticker)
+    .then(company => {
+      dispatch({
+        type: LOAD_FINS_SUCCESS,
+        payload: company
+      });
+    })
+    .catch(error => {
+      dispatch({ type: LOAD_FINS_ERROR})
+    })
+  }
+}
+
 
 export const openLoginModal = () => ({
   type: OPEN_LOGIN_MODAL

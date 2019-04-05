@@ -50,6 +50,7 @@ const SignUpLoginPage = ({loginUser, signupUser}) => {
             onChange={e => setPasswordConfirmation(e.target.value)}
           />
         </label>
+        {password !== passwordConfirmation && <span className='warning'>Password must match confirmation</span>}
         <button onSubmit={() => signupUser(email, password)} disabled={password === passwordConfirmation ? false : true}>SignUp</button>
         </div>
         ) : (

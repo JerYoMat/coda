@@ -8,7 +8,7 @@ import {
 import Modal from 'react-modal';
 import { loadCompanies } from './actions';
 import { Provider } from 'react-redux';
-import reducer from './reducer';
+import reducer from './reducers';
 import App from './App';
 import thunk from 'redux-thunk';
 import './index.css';

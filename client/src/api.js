@@ -4,7 +4,6 @@ export const getCompanies = () => {
 };
 
 export const login = (email, password) => {
-  
   return postData('/login', {
     email: email, 
     password: password
@@ -18,6 +17,11 @@ export const signup = (email, password) => {
   });
 }
 
+export const getFins = (ticker) => {
+  return fetch(`/companies/${ticker}/financials`)
+    .then(response => response.json())
+}
+
 
 export const createCompany = (name, ticker, exchange) => {
   
@@ -27,6 +31,8 @@ export const createCompany = (name, ticker, exchange) => {
     primaryexchange: exchange
   });
 };
+
+
 
 function postData(url = ``, data = {}) {
   // Default options are marked with *

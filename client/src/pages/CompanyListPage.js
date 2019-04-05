@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addCompany } from '../actions';
 import { Link } from '@reach/router';
 
-const CourseListPage = ({ companies, dispatch }) => {
+const CourseListPage = ({ loading, companies, dispatch }) => {
   const [companyName, setCompanyName] = useState('');
   const [companyTicker, setCompanyTicker] = useState('');
   const [companyExchange, setCompanyExchange] = useState('');
@@ -56,7 +56,7 @@ const CourseListPage = ({ companies, dispatch }) => {
 };
 
 const mapState = state => ({
-  companies: state.list
-
+  companies: state.companies.list,
+  loading: state.companies.loading
 });
 export default connect(mapState)(CourseListPage);
