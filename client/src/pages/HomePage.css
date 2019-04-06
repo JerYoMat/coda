@@ -1,0 +1,6 @@
+.home-container {
+  background-image: url('../images/background2.jpg');
+  height: 30vh;
+  background-size: cover;
+  max-height: 350px;
+}

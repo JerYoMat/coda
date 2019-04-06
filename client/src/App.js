@@ -1,18 +1,28 @@
 import React from 'react';
 import { Router, Redirect } from '@reach/router'; 
+import { connect } from 'react-redux'
 import CompanyListPage from './pages/CompanyListPage';
-import SignupLoginPage from './pages/SignupLoginPage';
 import CompanyDetailPage from './pages/CompanyDetailPage';
+import NavbarCustom from './components/NavbarCustom';
+import LoginCube from './components/LoginCube';
+import HomePage from './pages/HomePage';
 
-const App = () => {
+const App = ({ user }) => {
   return (
-    <Router>
-      <Redirect noThrow from='/' to='/companies' />
+    <div>
+    <NavbarCustom user={user}/>
+    <Router> 
+      <HomePage path='/' />
       <CompanyListPage path='companies'/>
-      <SignupLoginPage path='/login' />
+      <LoginCube path='/login' />
       <CompanyDetailPage path='/companies/:companyId' />
     </Router>
+    </div>
   )
 }
 
-export default App;
+const mapState = state => ({
+  user: state.users.user
+})
+
+export default connect(mapState)(App);

@@ -8,6 +8,7 @@ export const saveAuthToken = store => next => action => {
   ) {
     // save token
     setToken(action.payload.token);
+    
   }
   next(action);
 };
