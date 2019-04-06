@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_185520) do
+ActiveRecord::Schema.define(version: 2019_04_06_210926) do
 
   create_table "companies", force: :cascade do |t|
     t.string "companyname"
     t.string "primarysymbol"
     t.string "primaryexchange"
-    t.string "industry"
-    t.string "sector"
+    t.integer "industry_id"
+    t.integer "sector_id"
     t.bigint "market_cap"
     t.date "market_cap_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["industry_id"], name: "index_companies_on_industry_id"
+    t.index ["sector_id"], name: "index_companies_on_sector_id"
   end
 
   create_table "financial_periods", force: :cascade do |t|
@@ -74,6 +76,16 @@ ActiveRecord::Schema.define(version: 2019_03_30_185520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_financial_periods_on_company_id"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
