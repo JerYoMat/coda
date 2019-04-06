@@ -1,6 +1,8 @@
 require 'pry'
 class Company < ApplicationRecord
   has_many :financial_periods
+  belongs_to :sector
+  belongs_to :industry
   validates :companyname, 
     presence: true, length: { maximum: 255 },
     uniqueness: {case_sensitive: false}
@@ -27,6 +29,7 @@ class Company < ApplicationRecord
     end 
     
   end 
+
 
   def current_end_date
     dates = []
