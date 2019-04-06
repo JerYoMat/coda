@@ -44,8 +44,11 @@ include ERB::Util
       end 
     end  
     render json:  @company.financial_periods
-
   end 
+
+  def industries
+  end 
+
 
 
 
